@@ -89,3 +89,10 @@ $ /game
 $ /game 5
 ```
 
+
+## Testing
+
+```
+yarn test
+yarn lint
+```
