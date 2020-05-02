@@ -1,0 +1,27 @@
+service: aws-tg-game-bot
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  versionFunctions: false
+  environment:
+    TELEGRAM_BOT_TOKEN: xxxxxxxx:xxxxxxxx
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+functions:
+  webhook:
+    handler: handler.webhook
+    events:
+      - http:
+          path: webhook
+          method: post

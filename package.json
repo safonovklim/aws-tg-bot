@@ -1,0 +1,32 @@
+{
+  "name": "aws-lambda-dynamodb--telegram-game-bot",
+  "version": "1.0.0",
+  "description": "Telegram Game Bot based on AWS Lambda and DynamoDB",
+  "main": "handler.js",
+  "license": "MIT",
+  "keywords": [
+    "aws",
+    "nodejs",
+    "telegram",
+    "chatbot",
+    "serverless",
+    "dynamodb",
+    "lambda"
+  ],
+  "scripts": {
+    "lint": "$(yarn bin eslint) . --ext .js --fix",
+    "test": "NODE_ENV=test $(yarn bin jest)"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.12.0",
+    "axios": "^0.19.2",
+    "jest": "^25.5.4",
+    "lodash.chunk": "^4.2.0",
+    "uuid": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}
